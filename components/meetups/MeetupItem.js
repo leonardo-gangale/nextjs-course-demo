@@ -6,7 +6,7 @@ function MeetupItem(props) {
   const router = useRouter();
 
   function showDetailsHandler() {
-    router.push(props.id);
+    router.replace(props.id);
   }
 
   return (
@@ -20,7 +20,7 @@ function MeetupItem(props) {
           <address>{props.address}</address>
         </div>
         <div className={classes.actions}>
-          <button onClick={showDetailsHandler}>Show Details</button>
+          <button onClick={() => showDetailsHandler()}>Show Details</button>
         </div>
       </Card>
     </li>

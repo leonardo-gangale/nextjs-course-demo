@@ -6,7 +6,7 @@ import MeetupList from "../components/meetups/MeetupList";
 export default function HomePage(props) {
   const [loadedMetups, setLoadedMeetups] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     setLoadedMeetups(props.meetups);
   }, []);
 
@@ -29,7 +29,6 @@ export async function getStaticProps() {
   const meetupCollections = db.collection("meetups");
   const fetchedMeetups = await meetupCollections.find().toArray();
   client.close();
-  console.log(fetchedMeetups);
 
   return {
     props: {
